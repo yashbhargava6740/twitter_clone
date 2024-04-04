@@ -1,9 +1,9 @@
-import { Inter } from "next/font/google";
 import React from "react";
-import { BiHash, BiHomeCircle, BiUser } from "react-icons/bi";
+import { BiHash, BiHomeCircle, BiMoney, BiUser } from "react-icons/bi";
 import { BsBell, BsBookmark, BsEnvelope, BsTwitterX } from "react-icons/bs";
 import { CiCircleMore } from "react-icons/ci";
-const inter = Inter({ subsets: ["latin"] });
+import FeedCard  from '../components/FeedCard'
+
 interface TwitterSideBarButton {
   title: string;
   icon: React.ReactNode;
@@ -31,6 +31,10 @@ const sideBarMenuItems: TwitterSideBarButton[] = [
     icon: <BsBookmark />,
   },
   {
+    title: "Twitter Blue",
+    icon: <BiMoney/>
+  },
+  {
     title: "Profile",
     icon: <BiUser />,
   },
@@ -41,10 +45,10 @@ const sideBarMenuItems: TwitterSideBarButton[] = [
 ];
 export default function Home() {
   return (
-    <div className = {inter.className}>
+    <div>
       <div className="grid grid-cols-12 h-screen w-screen px-56">
         
-        <div className="col-span-3 justify-start py-8 px-4">
+        <div className="col-span-3 justify-start py-8 ml-28">
           <div className="w-fit text-2xl h-fit hover:bg-slate-800 rounded-full p-2 cursor-pointer transition-all">
             <BsTwitterX />
           </div>
@@ -64,7 +68,9 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="col-span-6 border-r-[1px] border-l-[1px] border-gray-400"></div>
+        <div className="col-span-5 border-r-[1px] border-l-[1px] border-gray-600">
+          <FeedCard/>                 
+        </div>
         
         <div className="col-span-3"></div>
       
